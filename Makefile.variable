@@ -1,0 +1,4 @@
+system_path?=system
+shell_system_path?=${system_path}/shell
+build_path?=${shell_system_path}/build.sh
+python_version_path?=/home/alexei/.pyenv/versions/3.10.4/bin/python3.10
