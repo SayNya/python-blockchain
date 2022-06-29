@@ -1,7 +1,13 @@
-from src.ellipse.secp256k1 import S256Field, S256Point
+from fastapi import FastAPI, Depends
+from src.api.views import api_router
+from src.blockchain.blockchain import Blockchain
 
-G = S256Point(
-    0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798,
-    0x483ada7726a3c4655da4fbfc0e1108a8fd17b448a68554199c47d08ffb10d4b8
-)
-print(0x79be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798 * G)
+
+def create_app():
+    app_ = FastAPI()
+    app_.include_router(api_router)
+    return app_
+
+
+blockchain = Blockchain()
+app = create_app()
