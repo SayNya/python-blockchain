@@ -14,6 +14,3 @@ class Block:
         block_hash.update(str(self.timestamp).encode('utf-8'))
         block_hash.update(str(self.data).encode('utf-8'))
         return block_hash.hexdigest()
-
-
-print(Block([], 1656178257.440638).get_hash())

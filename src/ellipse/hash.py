@@ -11,6 +11,10 @@ def hash256(s):
     return hashlib.sha256(hashlib.sha256(s).digest()).digest()
 
 
+def hash256_hex(s):
+    return int(hashlib.sha256(hashlib.sha256(s).digest()).hexdigest(), 16)
+
+
 def encode_base58(s):
     count = 0
     for c in s:

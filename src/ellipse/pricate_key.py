@@ -1,7 +1,7 @@
 import hashlib
 import hmac
 
-from src.ellipse.hash import encode_base58_checksum
+from src.ellipse.hash import encode_base58_checksum, hash256_hex
 from src.ellipse.secp256k1.constants import N
 from src.ellipse.secp256k1.secp256k1_point import G
 from src.ellipse.signature import Signature
@@ -52,3 +52,14 @@ class PrivateKey:
         suffix = b"\x01" if compressed else b""
 
         return encode_base58_checksum(prefix + secret_bytes + suffix)
+
+
+my_key = PrivateKey(0xfffffffffffffffffffff10ffffffffebaaedce6af48a03bbfd25e8cd0364141)
+
+text = "Hello, World".encode("utf-8")
+print(text)
+text_hash = hash256_hex(text)
+print(text_hash)
+signature = my_key.sign(text_hash)
+print(signature.r, signature.s)
+print(my_key.point.verify(text_hash, signature))

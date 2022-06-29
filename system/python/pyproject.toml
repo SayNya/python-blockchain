@@ -8,6 +8,9 @@ authors = ["Alexey Lapitski <alexey.lapitski@intexsoft.by>"]
 python = "^3.10"
 fastapi = "^0.78.0"
 uvicorn = {extras = ["standard"], version = "^0.18.1"}
+plyvel = "^1.4.0"
+CouchDB = "^1.2"
+python-dotenv = "^0.20.0"
 
 [tool.poetry.dev-dependencies]
 
